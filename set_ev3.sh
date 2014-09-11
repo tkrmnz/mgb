@@ -1,3 +1,3 @@
 cd /etc/init.d
-update_rc.d BTJS3d defaults
+update-rc.d BTJS3d defaults
 
