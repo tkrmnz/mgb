@@ -14,42 +14,29 @@
 #include <sys/socket.h>
 #include <sys/ioctl.h>
 
+
+
 int main(void){
   FILE *fp;
   char stat=0;
-int fd1; 
+ 
+  int fd1; 
 
   char fBuf[60];
   char BTid[17];
   char sBuf[512];
-  char wBuf[512];
 
-
-//  FILE *pp;
-//  char *Line;
-//  char buf[1000];
-
-
-
- if (wiringPiSetup () == -1)
-    exit (1) ;
-
-  fd1 = lcdInit (2, 16, 4, 11, 10, 0,1,2,3,0,0,0,0) ;
-
-  if (fd1 == -1)
-  {
-    printf ("lcdInit 1 failed\n") ;
-    return 1 ;
-  }
-/*
-  pp = popen("hcitool dev","r");
-  if(pp !=NULL){
-    Line = fgets(buf, sizeof buf, pp);
-    printf("%s",Line);
-    pclose(pp);
-  }
-*/
-
+	 if (wiringPiSetup () == -1)
+	    exit (1) ;
+	
+	  fd1 = lcdInit (2, 16, 4, 11, 10, 0,1,2,3,0,0,0,0) ;
+	
+	  if (fd1 == -1)
+	  {
+	    printf ("lcdInit 1 failed\n") ;
+	    return 1 ;
+	  }
+	
 
   fp = fopen("/root/btslct.conf","r");
     if(fp != NULL){
@@ -61,20 +48,16 @@ int fd1;
   
   fclose(fp);
   }
-if(stat){  
+if(stat){
 	lcdPosition (fd1, 0, 0); lcdPuts (fd1, " GLXP  MoonBots ");
-	lcdPosition (fd1, 0, 1); lcdPuts (fd1, "  Initializing  ");
+	lcdPosition (fd1, 0, 1); lcdPuts (fd1, "  Pairing Robot ");
 	sleep(1);
   
 	printf("%s\n",BTid);
-	sprintf(sBuf,"bluez-test-device disconnect %s\n\n",BTid);
+	sprintf(sBuf,"echo \"1234\"|bluez-simple-agent hci0 %s\n\n",BTid);
   	system(sBuf); 
-	sleep(1);
-	sprintf(wBuf,"bluez-test-device remove %s\n\n",BTid);
-  	system(wBuf); 
 	return 0;
 	}
   else 
     return -1;
 }
-
