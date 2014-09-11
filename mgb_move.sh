@@ -9,6 +9,7 @@ cp jt3 /root/jt3
 cp jt4 /root/jt4
 cp BTJSx.sh /root/BTJSx.sh
 cp BTJS3.sh /root/BTJS3.sh
+chmod 755 /root/*
 cp BTJSxd /etc/init.d/BTJSxd
 cp BTJS3d /etc/init.d/BTJS3d
 chmod 755 /etc/init.d/BTJSxd
