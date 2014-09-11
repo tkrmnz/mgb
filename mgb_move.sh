@@ -11,7 +11,7 @@ cp BTJSx.sh /root/BTJSx.sh
 cp BTJS3.sh /root/BTJS3.sh
 cp BTJSxd /etc/init.d/BTJSxd
 cp BTJS3d /etc/init.d/BTJS3d
-chhmod 755 /etc/init.d/BTJSxd
-chhmod 755 /etc/init.d/BTJS3d
+chmod 755 /etc/init.d/BTJSxd
+chmod 755 /etc/init.d/BTJS3d
 
 
