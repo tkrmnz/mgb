@@ -1,7 +1,7 @@
 #! /bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          BTJS3
+# Provides:          BTJSx
 # Required-Start:    bluetooth sshd
 # Required-Stop:     bluetooth sshd
 # Default-Start:     2 3 4 5
